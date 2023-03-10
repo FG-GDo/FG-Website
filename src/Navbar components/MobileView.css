@@ -1,0 +1,11 @@
+@media (min-width: 575px){
+    .toggle-button{
+        display: none;
+    }
+}
+
+@media (max-width: 575px){
+    .desktop-menu{
+        display: none;
+    }
+}
