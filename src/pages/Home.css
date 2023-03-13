@@ -1,0 +1,28 @@
+.description{
+    color: white;
+    background-color: blue;
+}
+.description-p{
+color: white;
+background-color: blue;
+}
+.expert-button{
+    background-color: black;
+    color: white;
+    padding: 1rem;
+}
+.shippers-pic-link{
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}
+.delivery-agents-pic-link{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+}
+.third-party-providers-pic-link{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+}

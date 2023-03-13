@@ -1,16 +1,21 @@
 import './Navbar.css'
 import { Dropdown, Menu} from 'semantic-ui-react'
-import { useState } from 'react';
+//import { useState } from 'react';
 import {useNavigate } from 'react-router-dom'
-type Props = {}
+type Props = {
+  CurrentActiveItem:string
+  SetActiveItem:Function
+}
 
 const Navbar = (props: Props) => {
-  const [activeItem, setActive] = useState('home')
+  //const [activeItem, setActive] = useState('home')
   const navigate = useNavigate();
   const handleItemClick = (e: any, { name }: any) => {
     name = name.split(" ").join("")
-    setActive(name)
+    //setActive(name)
+    props.SetActiveItem(name)
     navigate(`/${name}`)
+    console.log(name)
   }
   return (
     <div>
@@ -19,35 +24,35 @@ const Navbar = (props: Props) => {
         <Menu pointing secondary>
           <Menu.Item
             name='home'
-            active={activeItem === 'home'}
+            active={props.CurrentActiveItem === 'home'}
             onClick={handleItemClick}
           />
           <Dropdown item text='Solutions'>
-            {/* <Dropdown.Menu>
-              <Dropdown.Item name='Solutions/Shippers' active={activeItem === 'Shippers'} onClick={handleItemClick}>Shippers</Dropdown.Item>
-              <Dropdown.Item name='Solutions/DeliveryAgents' active={activeItem === 'DeliveryAgents'} onClick={handleItemClick}>Delivery Agents</Dropdown.Item>
-              <Dropdown.Item name='Solutions/ThirdPartyProviders' active={activeItem === 'ThirdPartyProviders'} onClick={handleItemClick}>Third Party Providers</Dropdown.Item>
-            </Dropdown.Menu> */}
+            <Dropdown.Menu >
+              <Dropdown.Item name='Solutions/Shippers' active={props.CurrentActiveItem === 'Shippers'} onClick={handleItemClick}>Shippers</Dropdown.Item>
+              <Dropdown.Item name='Solutions/DeliveryAgents' active={props.CurrentActiveItem === 'DeliveryAgents'} onClick={handleItemClick}>Delivery Agents</Dropdown.Item>
+              <Dropdown.Item name='Solutions/ThirdPartyProviders' active={props.CurrentActiveItem === 'ThirdPartyProviders'} onClick={handleItemClick}>Third Party Providers</Dropdown.Item>
+            </Dropdown.Menu>
           </Dropdown>
           <Menu.Item
             name='About'
-            active={activeItem === 'About'}
+            active={props.CurrentActiveItem === 'About'}
             onClick={handleItemClick}
           />
           <Menu.Item
             name='Contact Us'
-            active={activeItem === 'Contact Us'}
+            active={props.CurrentActiveItem === 'Contact Us'}
             onClick={handleItemClick}
           />
           <Menu.Menu position='right'>
             <Menu.Item
               name='Portal Login'
-              active={activeItem === 'Portal Login'}
+              active={props.CurrentActiveItem === 'Portal Login'}
               onClick={handleItemClick}
             />
             <Menu.Item
               name='Book a Demo'
-              active={activeItem === 'Book a Demo'}
+              active={props.CurrentActiveItem === 'Book a Demo'}
               onClick={handleItemClick}
             />
           </Menu.Menu>

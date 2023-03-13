@@ -9,7 +9,6 @@ import Navbar from './Navbar';
 const MobileView = () => {
     const [visible, setVisible] = React.useState(true)
     const [activeItem, setActive] = useState('home')
-
     const navigate = useNavigate();
     const handleItemClick = (e: any, { name }: any) => {
         name = name.split(" ").join("")
@@ -34,15 +33,20 @@ const MobileView = () => {
                             vertical
                             visible={visible}
                             width='thin'
-                            direction='right'
+                            direction='left'
                         >
                             <Menu.Item
                                 name='home'
                                 active={activeItem === 'home'}
                                 onClick={handleItemClick}
                             />
-                            <Dropdown item text='Solutions'>
-                                <Dropdown.Menu></Dropdown.Menu>
+                            
+                            <Dropdown pointing='right' direction='right' item text='Solutions'>
+                                <Dropdown.Menu className='solutions-inner-mobile-menu' >
+                                    <Dropdown.Item name='Solutions/Shippers' active={activeItem === 'Shippers'} onClick={handleItemClick}>Shippers</Dropdown.Item>
+                                    <Dropdown.Item name='Solutions/DeliveryAgents' active={activeItem === 'DeliveryAgents'} onClick={handleItemClick}>Delivery Agents</Dropdown.Item>
+                                    <Dropdown.Item name='Solutions/ThirdPartyProviders' active={activeItem === 'ThirdPartyProviders'} onClick={handleItemClick}>Third Party Providers</Dropdown.Item>
+                                </Dropdown.Menu>
                             </Dropdown>
                             {/* <Dropdown item text='Solutions'>
                                 <Dropdown.Menu>
@@ -71,7 +75,7 @@ const MobileView = () => {
                                 <span className='bar'></span>
                             </button>
                             <div>
-                                <Navbar />
+                                <Navbar SetActiveItem={setActive} CurrentActiveItem={activeItem}/>
                             </div>
                             <div style={{ height: '100vh' }}>
                                 <Outlet />
