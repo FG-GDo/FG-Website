@@ -8,4 +8,8 @@
     .desktop-menu{
         display: none;
     }
+    .ui.menu .ui.dropdown .menu.solutions-inner-mobile-menu>.item{
+        background-color: rgba(0, 0, 0, .87) !important;
+        color: white !important;
+    }
 }
